@@ -1,0 +1,22 @@
+<script type='text/javascript' charset='utf-8'>
+
+	$("#item_type").change(function() {
+		change_type_of_item_to_add( this.value );
+		return false;
+	});
+
+	/////////////////////////////////////////////////////////
+	// Load the existing form authors if there are any load
+	//   (this follows from an error in form submission).
+	<%
+		@item.authors_ids_as_array.each do |a|
+	%>
+			AddNewGeneric( "<%= a %>", 'item-author', 'item-authors' );
+	<% 	end
+	%>
+
+	///////////////////////////////
+	// Set the type if we know it
+	change_type_of_item_to_add('<%= @item_type %>');
+
+</script>

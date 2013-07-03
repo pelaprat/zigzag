@@ -1,0 +1,34 @@
+= form_for(@user) do |f|
+  %div{ :class => 'span-24 last' }
+    %div{ :class => 'span-7' }
+      &nbsp;
+    %div{ :class => 'span-10' }
+      &nbsp;
+      - if @user.errors.any?
+        .error_explanation
+          - @user.errors.full_messages.each do |msg|
+            .error= msg
+
+    %div{ :class => 'span-7 last' }
+      &nbsp;
+
+  %div{ :class => 'span-24 last' }
+    %div{ :class => 'span-2' }
+      &nbsp;
+    %div{ :class => 'span-5' }
+      .first-user-label First name:
+      .first-user-label Last name:
+      .first-user-label Email:
+      .first-user-label Password:
+      .first-user-label (repeat)
+      .first-user-label &nbsp;
+    %div{ :class => 'span-10' }
+      = form_for @user do |u|
+        .first-user-input= u.text_field :first
+        .first-user-input= u.text_field :last
+        .first-user-input= u.text_field :email
+        .first-user-input= u.password_field :password
+        .first-user-input= u.password_field :password_confirmation
+        .first-user-input= u.submit 'create'
+    %div{ :class => 'span-7 last' }
+      &nbsp;

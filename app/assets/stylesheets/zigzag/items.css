@@ -1,0 +1,75 @@
+/**********************/
+/*** ITEM HEADER ******/
+.item-header					{	display: table; }
+.item-header .row				{	display: table-row; }
+.item-header .info-box 			{	display: table-cell; font-size: 1.5em;}
+.item-header .edit-box 			{	display: table-cell; vertical-align: top; text-align: right; }
+.item-header .edit-box 		a	{	font-size: 1.25em; text-decoration: none; }
+.item-header .byline-box		{	margin-top: 15px; font-size: 1.5em; line-height: 1.1em; font-style: italic; }
+.item-header .info-box .title	{	font-size: 1.5em; line-height: 1.1em; font-style: italic; }
+
+.item-header .search-box {
+	color:				#777;
+	display:			table-cell;
+	font-size:			13px;
+	font-style:			italic;
+	text-align:			right;
+	vertical-align:		bottom;
+}
+
+.item-header .search-box input[type=text] {
+	border:				2px solid #ccc;
+	font-size:			16px;
+	font-family:		'Georgia';
+	text-align:			right;
+	width:				303px;
+}
+/**********************/
+
+
+/***********/
+/** Items **/
+#item-book-entries,
+#item-essay-entries {
+	display: 			none;
+}
+
+.item-form {
+	font-size:			1.5em;
+	line-height: 		36px;
+	text-align: 		left;
+}
+
+.item-form input[type=submit] {
+	font-size: 			36px;
+	height: 			40px;
+}
+
+.item-form	input[type=text],
+			input[type=number] {
+	height: 			20px;
+	font-size: 			16px;
+}
+
+.item-form input[type=text] {
+	width: 				350px;
+}
+
+.item-form select {
+	font-size: 			24px;
+	height: 			30px;
+}
+
+.item-form .meta-build {
+	color: inherit;
+}
+
+.item-form .meta-build .right-column-tool {
+	font-size: 12px;
+}
+
+.author-build {
+	background: red;
+	color: green;
+	font-size: 12px;
+}

@@ -1,0 +1,42 @@
+%div{ :class => "meta-build span-6 last"}
+  %div{ :class => 'span-6' }
+    %div{ :class => 'span-5'} Terms
+    %div{ :class => 'right-column-tool span-1 last'}
+      %a{ :id => "add-mark-#{mark.id}-term" } [ + ]
+  %hr
+
+  -# Open form here with helper method
+  -#  = form_tag( url_x, { :remote => :true, :id => "mark-#{mark.id}-term-form" } ) do
+  = tag_or_term_select_form_open( 'term', mark.id )
+  = hidden_field_tag 'mark[id]',    mark.id
+ 
+  %div{ :id => "mark-#{mark.id}-term-template" }
+    %div{ :id => "mark-#{mark.id}-term-item" }
+      %a{ :id => "delete-::FIELD1::" }
+        [ - ]
+      -# Potentially expensive method: collection_select
+      = collection_select(:term, 'select-::FIELD1::', @user_terms, :id, :name, { :prompt => '-'  } )
+    = submit_tag 'Submit', { :class => 'hide-me', :id => 'submit-button' }
+ 
+  %div{ :id => "mark-#{mark.id}-terms", :class => 'span-6 list' }
+    - if mark.mark_terms.length > 0
+      - mark.mark_terms.each do |mark_term|
+        .clickable-flag{ :id => "mark_term-".concat( mark_term.id.to_s ) }
+          = link_to('<div class="x">X</div> '.html_safe.concat( mark_term.term.clean_name ), mark_term_path( mark_term.id, :action => :destroy ), :method => :delete, :remote => true)
+
+  -# Close tag/term select form here
+  </form>
+
+  -# Open tag/term select form here with helper method
+  -# = form_tag( {:controller => :mark_terms, :action => :create}, { :class => "new-meta-form", :remote => :true } ) do
+  = tag_or_term_create_form_open( 'term' )
+  = hidden_field_tag "mark[id]", mark.id
+  = text_field( :term, :name, { :class => 'span-6', :id => "mark-#{mark.id}-term-new" } )
+
+  -# Close tag/term select form here
+  </form>
+
+  :javascript
+    register_add_link( 'mark-#{mark.id}-term', 'mark-#{mark.id}-terms', 'true' );
+  -# Potentially expensive render
+  -#= render :partial => 'javascript/meta/register',	:locals => { :singular => "mark-#{mark.id}-term", :plural => "mark-#{mark.id}-terms", :ajaxify => true }

@@ -1,0 +1,62 @@
+= render 'javascript/mark/add'
+
+-# ITEM HEADER: TITLE; SEARCH; 
+.item-header{ :class => 'span-24 last'}
+  .row
+    .info-box{ :class => 'span-16' }
+      .title= @item.title
+    .edit-box{ :class => 'last' }
+      = link_to '[edit]', edit_item_path(@item)
+
+  .row
+    .byline-box{ :class => 'span-16' }
+      by
+      -# Author code
+      - @item.authors.each do |author|
+        %span{:class => 'author'}= link_to author.fullname( :first ), author
+        - if @item.authors.last.id != author.id
+          |
+      in
+      = @item.journal.title
+
+    .search-box
+      = item_search_form_open
+      = hidden_field	:search, :item_id, 	{ :value => @item.id }
+      = hidden_field	:search, :user_id,	{ :value => @current_user.id }
+      = hidden_field	:search, :name,		{ :value => @current_user.fullname }
+      = text_field		:search, :keywords
+      -# Form Close
+      </form>
+
+%hr{ :class => '' }
+
+-# FLASH
+- if flash[:error]
+  .error
+    = flash[:error]
+
+- if flash[:success]
+  .success
+    = flash[:success]
+
+- if flash[:notice]
+  .notice
+    = flash[:notice]
+
+-# ADD A NEW MARK
+= form_tag('/marks', {:class => 'inline'}) do
+  = hidden_field_tag 'item[type]', @item.type
+  = hidden_field_tag 'item[id]',   @item.id
+  = hidden_field_tag 'mark[item_id]', @item.id
+  = hidden_field_tag 'mark[user_id]', @current_user.id
+
+  = render :partial => "marks/form", :locals => { :mark => @last_mark }
+
+-# MARKS ITERATION
+%hr{ :class => 'prepend-bottom' }
+
+- @marks.each do |mark|
+  - if %w(Quote Comment).include?( mark.type )
+    = render :partial => "marks/mark", :locals => { :item => @item, :mark => mark }
+  - elsif %w(Divider).include?( mark.type )
+    = render :partial => "marks/divider", :locals => { :item => @item, :mark => mark }

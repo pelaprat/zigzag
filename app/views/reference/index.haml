@@ -1,0 +1,12 @@
+.span-24{ :class => 'append-bottom'}
+  &nbsp;
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+
+  - if flash[:error]
+    .error
+      = flash[:error]
+
+= render :partial => 'reference/items/items', :locals => { :f_filter => 1, :f_header => 1 }
+

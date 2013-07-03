@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  mark: 
+  meta: 
+  user: 
+
+two:
+  type: 
+  mark: 
+  meta: 
+  user: 

@@ -1,0 +1,17 @@
+.span-24{ :class => 'last' }
+  #mark-top-bar{ :class => 'span-24 append-1 last' }
+    Add a
+    = select( 'mark', 'type', @g_mark_types, { :selected => :Quote }, {} ) 
+    on Page 
+    = number_field( :mark, :page, { :class => :number, :value => mark.page } )
+    or Section
+    = number_field( :mark, :section, { :class => :number, :value => mark.section } )
+    around the
+    = select( 'mark', 'area', @g_mark_areas, { :selected => :Top }, {} ) 
+    of the page.
+  #mark-quote{ :class => 'span-12 append-1 ' }
+    = text_area( :mark, :quote, { :class => 'span-12' })
+  #mark-comment{ :class => 'span-11 last' }
+    = text_area( :mark, :comment, { :class => 'span-11 append-1' })
+  #mark-submit{ :class => 'span-24 last' }
+    = submit_tag 'Submit'

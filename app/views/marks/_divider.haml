@@ -1,0 +1,14 @@
+%div{ :class => 'mark-item span-24 append-bottom' }
+  %a{ :name => mark.id }
+  %div{ :class => 'content span-24 last'}
+    %div{ :class => 'header span-24 last'}
+      %div{ :class => 'divider span-23' }
+        %br
+        [ - 
+        = mark.comment
+        \ - ]
+
+      %div{ :class => 'tools span-1 last' }
+        - if mark.user_id == @current_user.id
+          = link_to '[edit]', edit_mark_path( mark.id )
+%hr

@@ -1,0 +1,19 @@
+%div{ :class => 'item-table span-24 last' }
+  %div{ :class => 'meta span-24 last'}
+    = form_tag home_index_path, :method => 'get', :remote => :true, :id => 'item-search-form' do
+      = hidden_field_tag :direction, params[:direction]
+      = hidden_field_tag :sort, params[:sort]
+
+      %div{ :class => 'options span-12'}
+        = check_box_tag 'f_books', 1, true
+        Books
+        = check_box_tag 'f_articles', 1, true
+        Journal Articles
+
+      %div{ :class => 'filter span-12 last'}
+        - if f_filter && f_filter == 1
+          Filter: 
+          = text_field_tag :search, params[:search]
+
+  #items-list
+    = render :partial => 'reference/items/items_list', :locals => { :f_header => f_header }

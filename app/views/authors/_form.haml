@@ -1,0 +1,24 @@
+%div{ :class => 'item-form span-5 last' }
+  &nbsp;
+
+%div{ :class => 'item-form box span-12 last' }
+  = form_for(@author) do |f|
+    - if @author.errors.any?
+      - @author.errors.full_messages.each do |msg|
+        .error= msg
+
+    %div{ :class => 'span-12' }
+      I am adding an author to the database:
+      %br
+      First: 
+      = f.text_field :first
+      %br
+      Last: 
+      = f.text_field :last
+
+    %div{ :class => 'span-12 append-top' }
+      = submit_tag 'Submit'
+
+%div{ :class => 'item-form span-5 last' }
+  &nbsp;
+

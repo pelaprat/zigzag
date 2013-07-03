@@ -1,0 +1,36 @@
+!!! XML
+!!!
+%html
+  %head
+    %title ZigZag / WigWam
+
+    = javascript_include_tag :application
+    = javascript_include_tag :shadowbox
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'blueprint/scaffold', :media => 'screen', :rel => 'stylesheet', :type => 'text/css'
+    = stylesheet_link_tag 'blueprint/print', :media => 'print', :rel => 'stylesheet', :type => 'text/css'
+    = stylesheet_link_tag 'blueprint/screen', :media => 'screen, projection', :rel => 'stylesheet', :type => 'text/css'
+
+    = stylesheet_link_tag("zigzag/general")
+    = stylesheet_link_tag("zigzag/login")
+    = stylesheet_link_tag("zigzag/user")
+    = stylesheet_link_tag("zigzag/navigation")
+    = stylesheet_link_tag("zigzag/search")
+    = stylesheet_link_tag("zigzag/item_table")
+    = stylesheet_link_tag("zigzag/items")
+    = stylesheet_link_tag("zigzag/chapter_table")
+    = stylesheet_link_tag("zigzag/marks")
+    = stylesheet_link_tag("zigzag/meta_build")
+    = stylesheet_link_tag("zigzag/footer")
+
+    = stylesheet_link_tag("shadowbox-3.0.3/shadowbox")
+    = javascript_include_tag :shadowbox_startup
+    = javascript_include_tag :reference_popup
+
+  %body
+    .container
+      = render 'home/header'
+      = yield
+      = render 'home/footer'

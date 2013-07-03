@@ -1,0 +1,16 @@
+/***************/
+/** User Page **/
+.user-preferences {
+	display: table;
+}
+
+.user-preferences .label {
+	display:			table-cell;
+	font-size:			18px;
+}
+
+.user-preferences .value input[type=text] {
+	display:			table-cell;
+	font-size:			18px;
+	margin:				0px;
+}

@@ -1,0 +1,31 @@
+//  Vars:
+//    meta_relation_new_flag
+//
+//    main_obj_name: 			e.g., search / fieldnote
+//    meta_obj_name_singular:	e.g., keyword
+//    meta_obj_name_plural:		e.g., keywords
+//    relation_obj:				e.g., @search_keyword 
+//    meta_obj:					e.g., @keyword 
+//
+
+<% if meta_relation_new_flag == true %>
+
+	$('#<%= escape_javascript( main_obj_name ) %>-<%= escape_javascript( params[main_obj_name][:id] ) %>-<%= escape_javascript( meta_obj_name_plural ) %>')
+		.append( 
+			$(document.createElement('div')).addClass('clickable-flag')
+											.attr( 'id',	'<%= escape_javascript( main_obj_name )           %>' + '_' + 
+															'<%= escape_javascript( meta_obj_name_singular )  %>' + '-' + 
+															"<%= escape_javascript( relation_obj.id.to_s )    %>" )
+											.append(
+				$(document.createElement('a')).attr( 'href',	'/' + 
+																'<%= escape_javascript( main_obj_name )         %>' + '_' + 
+																'<%= escape_javascript( meta_obj_name_plural )  %>' + '/' + 
+																"<%= escape_javascript( relation_obj.id.to_s )  %>" )
+									  		  .attr( 'data-remote', 'true' )
+											  .attr( 'data-method', 'DELETE' )
+									  		  .html( '<div class="x">X</div> ' + "<%= escape_javascript( meta_obj.name ) %>"  ))
+	);
+
+	$('#<%= escape_javascript( main_obj_name ) %>-<%= escape_javascript( params[main_obj_name][:id] ) %>-<%= escape_javascript( meta_obj_name_singular ) %>-new').val('');
+
+<% end %>

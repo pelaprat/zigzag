@@ -1,0 +1,59 @@
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%div{ :class => 'span-24 last' }
+  %div{ :class => 'span-7' }
+    &nbsp;
+  %div{ :class => 'span-10' }
+    %h1 ZigZag / WigWam
+  %div{ :class => 'span-6 last' }
+    &nbsp;
+
+  - if wall_type.eql? :login
+    = render :partial => 'sessions/form'
+  - else
+    %div{ :class => 'span-24 last' }
+      %div{ :class => 'span-7' } &nbsp;
+      %div{ :class => 'span-10' }
+        %br
+        It looks like this is a new installation of ZigZag! 
+        %br
+        %br 
+        The first thing you need to do is create an administrator account.
+      %div{ :class => 'span-7 last' } &nbsp;
+
+    = render :partial => 'users/form', :locals => { :user => @user }
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br

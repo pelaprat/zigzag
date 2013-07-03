@@ -1,0 +1,3 @@
+class Divider < Mark
+
+end

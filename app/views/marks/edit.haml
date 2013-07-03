@@ -1,0 +1,19 @@
+%br
+%br
+%br
+%br
+
+%br
+%br
+%br
+%br
+
+= form_for(@mark) do |m|
+  - if @mark.errors.any?
+    .error_explanation
+      - @mark.errors.full_messages.each do |msg|
+        .error= msg
+
+  = hidden_field_tag 'mark[id]', @mark.id
+
+  = render :partial => "marks/form", :locals => { :mark => @mark }

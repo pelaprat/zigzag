@@ -1,0 +1,40 @@
+<script type='text/javascript' charset='utf-8'>
+
+	//////////////////////////////////////////////////////
+	// Function to handle changes in type of item to add
+	function change_type_of_item_to_add( to_type ) {
+	
+		if( to_type == 'Book' ) {
+			$('.add-item-article-entity').hide();
+			$('.add-item-chapter-entity').hide();
+			$('.add-item-journal-entity').hide();
+	
+			$('.add-item-book-entity').show();
+	
+		} else if( to_type == 'Chapter' ) {
+			$('.add-item-article-entity').hide();
+			$('.add-item-journal-entity').hide();
+			$('.add-item-book-entity').hide();
+	
+			$('.add-item-chapter-entity').show();
+	
+		} else if( to_type == 'Journal' ) {
+			$('.add-item-book-entity').hide();
+			$('.add-item-chapter-entity').hide();
+			$('.add-item-article-entity').hide();
+	
+			$('.add-item-journal-entity').show();
+	
+		}  else if( to_type == 'Article' ) {
+			$('.add-item-book-entity').hide();
+			$('.add-item-chapter-entity').hide();
+			$('.add-item-journal-entity').hide();
+	
+			$('.add-item-article-entity').show();
+		}
+	
+		// Set the value of the menu
+		$('#item_type').val(to_type);
+	}
+
+</script>

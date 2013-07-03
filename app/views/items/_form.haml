@@ -1,0 +1,89 @@
+%div{ :class => 'item-form span-4 last' }
+  &nbsp;
+
+%div{ :class => 'item-form box span-14 last' }
+  = form_for(@item.becomes(Item)) do |f|
+    - if @item.errors.any?
+      - @item.errors.full_messages.each do |msg|
+        .error= msg
+
+    - if params[:action].eql? 'edit'
+      = f.hidden_field( 'type', :value => @item_type )
+    - else
+      %div{ :class => 'span-14' }
+        %div{ :class => 'span-3 label'}
+          Type: 
+        %div{ :class => 'span-11 value last last'}
+          = select( 'item', 'type', @g_item_types, { :selected => @item.type }, {} ) 
+
+    %div{ :class => 'span-14' }
+      %div{ :class => 'span-3 label'}
+        Title:
+      %div{ :class => 'span-11 value last'}
+        = f.text_field :title
+
+    %div{ :class => 'span-14 add-item-book-entity add-item-chapter-entity add-item-article-entity' }
+    %div{ :class => 'span-3 label'}
+      Authors:
+    %div{ :class => 'span-11 value last'}
+      = render :partial => 'items/author_tools'
+
+    %hr{ :class => 'add-item-chapter-entity add-item-article-entity'}
+
+    %div{ :class => 'span-14 add-item-chapter-entity' }
+      %div{ :class => 'span-3 label'}
+        Part of:
+      %div{ :class => 'span-11 value last'}
+        %span{ :id => 'add-item-book-list' }
+          = collection_select 'item', 'book_id', @books, :id, :title
+
+    %div{ :class => 'span-14 add-item-article-entity' }
+      %div{ :class => 'span-3 label'}
+        Published in:
+      %div{ :class => 'span-11 value last'}
+        %span{ :id => 'add-item-journal-list' }
+          = collection_select 'item', 'journal_id', @journals, :id, :title
+
+    %hr
+
+    %div{ :class => 'span-14 add-item-book-entity add-item-chapter-entity' }
+      %div{ :class => 'span-3 label'}
+        Divisions: 
+      %div{ :class => 'span-11 value last'}
+        %span{ :class => 'add-item-book-entity'}
+          = f.check_box :flag_chapters 
+          chapters
+        = f.check_box :flag_sections 
+        sections
+
+    %div{ :class => 'span-14 add-item-book-entity add-item-chapter-entity add-item-article-entity' }
+      %div{ :class => 'span-3 label'}
+        Year:
+      %div{ :class => 'span-11 value last'}
+        = f.number_field :year, { :value => '2000', :size => '7' }
+
+    %div{ :class => 'span-14 add-item-book-entity add-item-chapter-entity add-item-article-entity' }
+      %div{ :class => 'span-3 label'}
+        Pages:
+      %div{ :class => 'span-11 value last'}
+        = f.number_field :page_first, { :size => '7' }
+        to 
+        = f.number_field :page_last, { :size => '7' }
+
+    %div{ :class => 'span-14 add-item-book-entity add-item-journal-entity' }
+      %div{ :class => 'span-3 label'}
+        ISBN:
+      %div{ :class => 'span-11 value last'}
+        = f.text_field :isbn
+        = '.'
+
+
+
+    %div{ :class => 'span-14 append-top' }
+      = submit_tag 'Submit'
+
+%div{ :class => 'item-form span-4 last' }
+  &nbsp;
+
+%br
+%br

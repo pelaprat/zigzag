@@ -1,0 +1,13 @@
+%div{ :class => "meta-build span-11 last"}
+  %div{ :class => 'span-11' }
+    %a{ :id => "add-item-author" } [ + ]
+
+  %div{ :id => "item-author-template" }
+    %div{ :id => "item-author-item" }
+      %a{ :id => "delete-::FIELD1::" }
+        [ - ]
+      = collection_select :author_ids, 'select-::FIELD1::', @authors, :id, :fullname, { :prompt => '-', :multiple => true  }
+
+  %div{ :id => "item-authors", :class => 'span-11' }
+
+  = render :partial => 'javascript/meta/register',	:locals => { :singular => "item-author", :plural => "item-authors", :ajaxify => false }

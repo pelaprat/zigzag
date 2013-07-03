@@ -1,0 +1,31 @@
+<script type='text/javascript'>
+
+	// Reference pop up javascript
+	var current_target = null;
+	function popup_tracker( target ) {
+		current_target = target;
+	}
+
+	function popup_callback( reference_id, name ) {
+		// Current_target is the input field
+		//  that was clicked on to produce the
+		//  reference browser. Now that an item is
+		//  selected that input field will have
+		//  its value set to "name." But what 
+		//  we also want is to set a hidden field
+		//  there to have the reference id. So we first
+		//  need to get the parent of the input field.
+
+		// Get the hidden field and set its value
+		parent = current_target.parent();
+		parent.find('input[type=hidden]').val(reference_id);
+
+		// Change the value of the input field
+		current_target.val(name);
+
+		// Close shadowbox
+		Shadowbox.close();
+	}
+
+	$('#reference').referencePopup( popup_tracker, window );
+</script>

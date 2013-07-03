@@ -1,0 +1,2 @@
+module SearchAuthorsHelper
+end

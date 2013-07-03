@@ -1,0 +1,47 @@
+/*********************/
+/** First-time user **/
+.first-user-label {
+	line-height:	4em;
+	font-size:		1.55em;
+	text-align:		right;
+}
+
+.first-user-input input[type=text],
+.first-user-input input[type=text]:focus,
+.first-user-input input[type=password],
+.first-user-input input[type=password]:focus {
+	border: 			2px solid #eee;
+	color:				black;
+	font-size: 			30px;
+	vertical-align:		top;
+	height: 			36px;
+	width: 				400px;
+}
+
+/*****************/
+/** Login items **/
+
+#login-form input[type=text],
+#login-form input[type=text]:focus,
+#login-form input[type=password],
+#login-form input[type=password]:focus {
+	border: 			2px solid #eee;
+	font-size: 			30px;
+	height: 			36px;
+	width: 				400px;
+	text-align: 		center;
+}
+
+#login-form-title {
+	text-align: 		center;
+	
+}
+
+#left-column-label {
+	text-align: 		right;
+}
+
+.right-column-tool {
+	text-align: 		right;
+}
+

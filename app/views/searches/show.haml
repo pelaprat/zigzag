@@ -1,0 +1,17 @@
+.search-header{ :class => 'span-24 last'}
+  - if ! @query.nil?
+    .span-24{ :class => 'last', :id => 'title' }
+      = pluralize( @query.total, 'search result').concat(' for')
+      %span{ :id => 'keywords' }
+        - if ! @search.keywords.nil?
+          = @search.keywords.split(/\s+/).join(' + ')
+      - if @single_item_search
+        in
+        = "\"".concat( @item.title ).concat( '"' )
+
+= render :partial => 'searches/form'
+
+%hr{ :class => 'prepend-bottom' }
+
+= render :partial => 'searches/results'
+

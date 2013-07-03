@@ -1,0 +1,17 @@
+%div{ :class => 'span-24 last' }
+  %div{ :class => 'span-2' }
+    &nbsp;
+  %div{ :class => 'span-5' }
+    &nbsp;
+    - flash.each do |key, msg|
+      %div= content_tag :div, msg, :class => key
+  #login-form-title{ :class => 'span-10' }
+    = form_tag sessions_path do
+      #login-form= text_field_tag :email, params[:email]
+      %br
+      #login-form= password_field_tag :password
+      %br
+      .hide-me
+        = submit_tag 'login'
+  %div{ :class => 'span-7 last'}
+    &nbsp;

@@ -1,0 +1,37 @@
+<script type='text/javascript' charset='utf-8'>
+
+	$(function() {
+		$("#mark_type").change(function() {
+			quote   = $('#mark-quote');
+			comment = $('#mark-comment');
+
+			if( this.value == 'Quote' ) {
+				quote.show();
+				comment.show();
+
+			} else if( this.value == 'Comment' || this.value == 'Divider' ) {
+				quote.hide();
+				comment.show();
+			}
+
+			return false;
+		})
+	});
+
+	$(document).ready(function() {
+		quote   = $('#mark-quote');
+		comment = $('#mark-comment');
+
+		if( $('#mark_type').value == 'Quote' ) {
+			quote.show();
+			comment.show();
+
+		} else if( this.value == 'Comment' || this.value == 'Divider' ) {
+			quote.hide();
+			comment.show();
+		}
+
+		return false;
+	});
+
+</script>

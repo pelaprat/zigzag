@@ -1,0 +1,82 @@
+/*****************************************/
+/** Search options on top of front page **/
+/* top left bottom right */
+.meta {
+	border-bottom:		1px solid #ddd;
+	background:			#fea;
+	font-size:			1.25em;
+	font-style: 		italic;
+	padding:			6px 5px 5px 5px;
+	margin-bottom:		10px;
+}
+.meta .options {
+	text-align: 		left;
+	padding-top:		9px;
+}
+
+.meta .filter {
+	text-align: right;
+}
+
+.meta .filter form {
+	padding:	0px 0px 0px 0px;
+	margin:		0px 0px 0px 0px;
+}
+
+.meta .filter input[type=text],
+.meta .filter input[type=text]:focus {
+	border:				2px solid #ddd;
+	font-size:			1.1em;
+	font-family:		Georgia;
+	font-style:			italic;
+	margin:				2px;
+	padding:			2px;	
+}
+/*****************************************/
+
+/****************/
+/** Item Table **/
+.item-table {
+	font-family: sans-serif;
+	font-weight: normal;
+}
+.item-table a {
+	text-decoration: none;
+}
+
+.item-table .header {
+
+	border-bottom:  1px solid #eee;
+	border-top:  	2px solid #eee;
+	background:		#eee;
+	font-size: 		1.25em;
+	font-weight: 	bold;
+	padding: 		7px 0px 7px 7px;
+
+}
+
+.item-table .book,
+.item-table .article {
+	font-size:   		1.3em;
+	line-height:		1.3em;
+	margin:				3px 0px 3px 0px;
+	padding:			3px 2px 3px 2px;
+}
+
+.item-table .book		{ background: 		#f9f9ff; }
+.item-table .article	{ background: 		#fff9f9; }
+
+.item-table .chapter {
+	font-size:   		1.2em;
+	line-height:		1em;
+	margin:				1px 0px 1px 0px;
+	padding:			3px 2px 3px 2px;
+}
+
+.item-table .chapter .name {
+	padding-left:		20px;
+}
+
+.item-table .author-column {
+	color:			#aaa;
+}

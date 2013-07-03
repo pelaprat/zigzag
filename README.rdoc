@@ -1,0 +1,28 @@
+= ZigZag, a reading augmentation app
+
+Etienne Pelaprat, pelaprat@gmail.com
+
+Zigzag is a small, reading augmentation app with some social-sharing features. It is intended to support reading-as-thinking by allowing users to quote, tag, categorize, and link their reading content to other reading content.
+
+== Installation
+
+* run `bundle install`
+
+* create a mysql user for zigzag
+
+* change the username/password values in config/database.yml
+
+* create databases for 'zigzag_development', 'zigzag_test', 'zigzag_production'
+
+* run `rake db:migrate`
+
+* run `rake sunspot:solr:start` to run the solr server
+
+* run `rails s`
+
+* go to http://localhost:3000 to finish the installation
+
+
+== Links
+
+Etienne Pelaprat: <http://pelaprat.com>

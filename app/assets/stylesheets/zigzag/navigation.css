@@ -1,0 +1,50 @@
+/****************
+/** Navigtion **/
+
+.navigation {
+	border-bottom:		1px solid #ccc;
+	border-left:		1px solid #ccc;
+	background:			#f6f6f6;
+	display:			inline-block;
+	line-height:		1.6em;
+
+	font-family:		"Arial", "Helvetica";
+	font-size:			1.2em;
+
+	padding:			6px;
+	padding-bottom:		2px;
+
+	-moz-border-radius:	5px;
+	border-radius:		5px;
+}
+
+
+.navigation #zigzag {
+	text-decoration:	none;
+	font-family:		"Georgia";
+	font-size: 			1.3em;
+	font-weight:		bold;
+	color:				#333;
+}
+
+.navigation #userinfo {
+	text-align: 		right;
+}
+
+.pagination {
+	border-top:  1px solid #eee;
+	border-bottom:  1px solid #eee;
+	background:		#f9f9f9;
+
+	font-weight: bold;
+	padding: 7px 0px 5px 7px;
+	margin:  5px 0px 4px 0px;
+}
+
+.pagination .page {
+	margin: 0px 3px 0px 3px;
+}
+
+.pagination .disabled {
+	color: #999;
+}

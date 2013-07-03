@@ -1,0 +1,48 @@
+= paginate @query
+
+- if @f_header && @f_header == 1
+
+  - @items.each do |item|
+    - if item.type == 'Book'
+      .hide-me= item.id
+      %div{ :class => 'book span-24 last item-book' }
+        %div{ :class => 'span-13'}= link_to item.title, item
+
+        -# Author code
+        %div{ :class => 'span-5 author-column'}
+          - item.authors.each do |author|
+            %span{:class => 'author'}= link_to author.fullname( :first ), author
+            - if item.authors.last.id != author.id
+              |
+        %div{ :class => 'span-4'} -
+        %div{ :class => 'span-1 last'}= item.year
+  
+      - item.chapters.each do |chapter|
+        %div{ :class => 'chapter span-24 last item-book-chapter' }
+          %div{ :class => 'span-13' }
+            %div{ :class => 'name span-11 last'}= link_to chapter.title, chapter
+
+          -# Author code
+          %div{ :class => 'span-5 author-column'}
+            - item.authors.each do |author|
+              %span{:class => 'author'}= link_to author.fullname( :first ), author
+              - if item.authors.last.id != author.id
+                |
+          %div{ :class => 'span-4'} -
+          %div{ :class => 'span-1 last'} -
+
+
+    - elsif item.type == 'Article'
+      .hide-me= item.id
+      %div{ :class => 'article span-24 last item-article' }
+        %div{ :class => 'span-13'}= link_to item.title, item
+
+        -# Author code
+        %div{ :class => 'span-5 author-column'}
+          - item.authors.each do |author|
+            %span{:class => 'author'}= link_to author.fullname( :first ), author
+            - if item.authors.last.id != author.id
+              |
+        %div{ :class => 'span-4'} -
+        %div{ :class => 'span-1 last'}= item.year
+

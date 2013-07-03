@@ -1,0 +1,28 @@
+- if flash[:notice] || flash[:error]
+  .span-24{ :class => 'append-bottom'}
+    - if flash[:notice]
+      .notice
+        = flash[:notice]
+
+    - if flash[:error]
+      .error
+        = flash[:error]
+
+
+%div{ :class => 'item-table span-24 last' }
+  %h2= @author.fullname( :first )
+
+%div{ :class => 'item-table span-24 last' }
+
+  %div{ :class => 'span-24 last' }
+    %div{ :class => 'header span-24 last' }
+      %div{ :class => 'span-13'}
+        = sortable_header 'title', 'Title'
+      %div{ :class => 'span-5 '}
+        Author
+      %div{ :class => 'span-4'}
+        Journal
+      %div{ :class => 'span-1 last'}
+        Year
+
+  = render :partial => 'home/items', :locals => { :f_path => author_path, :f_filter => 0, :f_header => 1 }

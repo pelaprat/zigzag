@@ -1,0 +1,8 @@
+- if params[:type].eql? 'Book'
+  = render :partial => 'items/show/book'
+- elsif params[:type].eql? 'Chapter'
+  = render :partial => 'items/show/chapter'
+- elsif params[:type].eql? 'Article'
+  = render :partial => 'items/show/article'
+
+= render  :partial  => 'javascript/shadowbox/reference_popup'

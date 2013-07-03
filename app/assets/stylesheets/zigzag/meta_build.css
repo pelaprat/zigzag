@@ -1,0 +1,30 @@
+
+/**************/
+/* Meta Build */
+.meta-build {
+	color: 				#666;
+}
+
+.meta-build a {
+	color: 				#666;
+}
+
+.meta-build hr {
+	margin-top:			2px;
+	margin-bottom:		8px;
+	padding:			0px;
+
+}
+
+.meta-build .list a, .meta-build a {
+	font-style:			none;
+	text-decoration:	none;
+}
+
+.meta-build select {
+}
+
+.new-meta-form input[type=text] {
+	border:				3px solid #f8f8f8;
+	color:				#555555;
+}

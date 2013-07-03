@@ -1,0 +1,27 @@
+<script type='text/javascript' charset='utf-8'>
+	$("#item_type").change(function() {
+		change_type_of_item_to_add( this.value );
+		return false;
+	});
+        	
+	/////////////////////////////////////////////////////////
+	// Load the existing form authors if there are any load
+	//   (this follows from an error in form submission).
+	<%
+		if defined? params and params.include? :author_ids
+			sorted_values = params[:author_ids].sort
+			sorted_values.each do |a|
+	%>
+				AddNewGeneric( "<%= a[1] %>", 'item-author', 'item-authors' );
+	<% 		end
+		end
+	%>
+        	
+	///////////////////////////////
+	// Set the type if we know it
+	<% if defined? params and params.include? :item and params[:item].include? :type %>
+		change_type_of_item_to_add( "<%= params[:item][:type] %>" );
+	<% else %>
+		change_type_of_item_to_add('Chapter');
+	<% end %>
+</script>

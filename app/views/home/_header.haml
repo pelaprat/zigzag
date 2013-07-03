@@ -1,0 +1,28 @@
+.span-24{ :class => 'append-bottom last' }
+
+- if @current_user
+  %div{ :class => 'navigation span-24 last' }
+    %div{ :class => 'span-6' }
+      %a{ :id => 'zigzag', :href => '/' } ZigZag / WigWam
+      %br
+      %a{ :href => '/authors/new' } Add Author
+      |
+      %a{ :href => '/items/new' } Add Item
+      |
+      = link_to "Search", '/search'
+
+    %div{ :class => 'span-12', :style => 'font-weight: bold; text-align: center;' }
+      ZigZag is in Beta. Suggestions? Broken? Email me!
+      %br
+      = link_to 'pelaprat@gmail.com', 'mailto:pelaprat@gmail.com'
+
+    #userinfo{ :class => 'span-6 last'}
+      - if session[:user_id]
+        Logged in as:
+        = link_to @current_user.fullname, user_path( @current_user )
+        %br
+        = link_to 'Logout', '/logout'
+      - else
+        = link_to 'Login', '/login'
+
+.span-24{ :class => 'append-bottom last' }

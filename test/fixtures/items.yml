@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  isbn: MyString
+  kind: 1
+  chapters: false
+  essay: false
+  sections: false
+  page_first: 1
+  page_last: 1
+  year: 1
+  title: MyString
+
+two:
+  isbn: MyString
+  kind: 1
+  chapters: false
+  essay: false
+  sections: false
+  page_first: 1
+  page_last: 1
+  year: 1
+  title: MyString

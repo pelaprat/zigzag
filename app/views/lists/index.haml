@@ -1,0 +1,17 @@
+%div{ :class => 'span-24 last' }
+  .top-headline Lists
+
+%div{ :class => 'span-24 last' }
+  %div{ :class => 'span-16' }
+    - @lists.each do |list|
+      %h3= list.name
+
+  %div{ :class => 'span-8 last' }
+    = form_for(@list) do |list|
+      - if @list.errors.any?
+        .error_explanation
+          - @list.errors.full_messages.each do |msg|
+            .error= msg
+      = list.hidden_field( :user_id, { :value => @current_user.id} )
+      = list.text_field :name
+      = submit_tag 'Submit'

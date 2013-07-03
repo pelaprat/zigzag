@@ -1,0 +1,39 @@
+- if f_header && f_header == 1
+  %div{ :class => 'span-24 last' }
+    %div{ :class => 'header span-24 last' }
+      %div{ :class => 'span-13'}
+        = sortable_header 'title', 'Title'
+      %div{ :class => 'span-5 '}
+        = sortable_header 'author_name', 'Author'
+      %div{ :class => 'span-4'}
+        = sortable_header 'author_name', 'Journal'
+      %div{ :class => 'span-1 last'}
+        = sortable_header 'author_name', 'Year'
+
+  - @items.each do |item|
+    .hide-me= item.id
+    - if item.type.eql? 'Book'
+      %div{ :class => 'book span-24 last' }
+        %div{ :class => 'span-13'}= link_to item.title, item
+        %div{ :class => 'span-5'}= link_to item.author.fullname( :last ), item.author
+        %div{ :class => 'span-4'} -
+        %div{ :class => 'span-1 last'}= item.year
+
+      - item.chapters.each do |chapter|
+        %div{ :class => 'chapter span-24 last' }
+          %div{ :class => 'span-13' }
+            %div{ :class => 'name span-11 last'}= link_to chapter.title, chapter
+          %div{ :class => 'span-5'}
+            - if chapter.author.id != item.author.id
+              = link_to chapter.author.fullname( :last ), chapter.author
+            - else
+              \ -
+          %div{ :class => 'span-4'} -
+          %div{ :class => 'span-1 last'}= item.year
+
+    - if item.type.eql? 'Article'
+      %div{ :class => 'article span-24 last' }
+        %div{ :class => 'span-13'}= link_to item.title, item
+        %div{ :class => 'span-5'}= link_to item.author.fullname( :last ), item.author
+        %div{ :class => 'span-4'}= item.journal.title
+        %div{ :class => 'span-1 last'}= item.year

@@ -1,0 +1,15 @@
+/************/
+/** Footer **/
+.footer {
+	border-bottom:		black;
+	background:			#f6f6f6;
+	color:				#555;
+	display:			inline-block;
+	line-height:		1.4em;
+	font-size:			1em;
+	text-align:			right;
+
+	padding:			4px;
+	-moz-border-radius:	5px;
+	border-radius:		5px;
+}

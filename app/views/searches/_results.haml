@@ -1,0 +1,32 @@
+#search-results
+  .span-24{ :class => 'last' }
+    = paginate @query
+
+    - unless @marks.nil? or @marks.empty?
+      - @marks.each do |mark|
+        .span-24{ :class => 'result' }
+          .span-24{ :id => 'header', :class => 'last' }
+            .span-24{ :id => 'title'}= link_to mark.item.title, url_for( :controller => :items, :action => :show, :type => mark.item.type, :id => mark.item.id, :anchor => mark.id  )
+            .span-24{ :id => 'address'}
+              = "zigzag.prole.com" + url_for( :controller => :items, :action => :show, :type => mark.item.type, :id => mark.item.id, :anchor => mark.id  )
+          
+          .span-24{ :id => 'text'}
+            - x = StringKeywordRanger.new( mark.quote_or_comment_with_keywords(@search.keywords), @search.keywords, 20 )
+            - x.segments.each do |segment|
+              \"...
+              != highlight( @search.keywords, segment )
+              \..."
+          
+          .span-24{ :id => 'meta'}
+            - unless mark.tags.empty?
+              %span{ :id => 'name'  } Tags:
+              %span{ :id => 'flags' }
+                - mark.tags.each do |tag|
+                  .clickable-flag{ :id => "mark_tag-".concat( tag.id.to_s ) }= tag.name
+          
+            - unless mark.terms.empty?
+              %span{ :id => 'name'  } Terms:
+              %span{ :id => 'flags' }
+                - mark.terms.each do |term|
+                  .clickable-flag{ :id => "mark_term-".concat( term.id.to_s ) }= term.name
+

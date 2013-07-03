@@ -1,0 +1,30 @@
+%div{ :class => 'span-24 last' }
+  .top-headline= @user.fullname
+
+%div{ :class => 'span-24 last' }
+  %div{ :class => 'span-16' }
+
+    - if @current_user.id == @user.id
+      %div{ :class => 'box span-15 last' }
+        = form_for( @user ) do |u|
+          %div{ :class => "user-preferences span-15 last" }
+            %div{ :class => "span-15 last" }
+              .sub-headline Preferences
+
+            %div{ :class => "label span-3" }
+              Email
+            %div{ :class => "value span-12 last" }
+              = u.text_field		:email
+
+  %div{ :class => 'span-8 last' }
+    .sub-headline Terms
+    %br
+    - @terms_with_frequency.each do |mt|
+      .clickable-flag= "#{mt.sum} #{mt.term.name}"
+
+    %p
+
+    .sub-headline Tags
+    %br
+    - @tags_with_frequency.each do |mt|
+      .clickable-flag= "#{mt.sum} #{mt.tag.name}"

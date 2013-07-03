@@ -1,0 +1,93 @@
+/*************************/
+/** MARK INPUT FORM CSS **/
+#mark-top-bar {
+	background:		#eef;
+	font-family:	Georgia;
+	font-size:		1.4em;
+	line-height:	2.5em;
+	padding:		0px 0px 0px 10px;
+	text-align:		left;
+}
+
+#mark-top-bar	.number { width: 4em; }
+#mark-quote 	textarea { border: 2px solid #ddd; font-size: 1.75em; font-family: Georgia; }
+#mark-comment 	textarea { border: 2px solid #ddd; font-size: 1.75em; font-family: Georgia; }
+#mark-submit	{ text-align: right; }
+
+#mark-submit input[type=submit] {
+	-webkit-border-radius:	5px;
+    -moz-border-radius:		5px;
+    border-radius:			5px;
+    border: 				1px solid #999;
+    padding:				2px 5px 2px 5px;
+    display:				inline-block;
+    text-decoration:		none;
+    background:				#e9e6e1;
+    color:					#444;
+    cursor:					pointer;
+    font:					13px sans-serif;
+}
+
+/***************************/
+/** MARK ITEM DISPLAY CSS **/
+.mark-item {
+	border: 			0px solid black;
+}
+
+.mark-item .content { }
+.mark-item .content .header {
+	line-height:		50px;
+	font-size:			48px;
+	margin-bottom:		3px;
+	padding-bottom: 	4px;
+}
+
+.mark-item .content .header .page {
+	color:          	#782526;
+	text-align: 		right;
+	font-weight:		bold;
+	font-style:			italic;
+
+}
+
+.mark-item .content .header .byline {
+	color:				#782526;
+	font-weight:		none;
+	font-size:			16px;
+	line-height:		25px;
+}
+
+.mark-item .content .header .divider {
+	color:				#782526;
+	font-weight:		none;
+	font-size:			24px;
+	line-height:		25px;
+	text-align:			center;
+	vertical-align: 	middle;
+}
+
+.mark-item .content .header .tools {
+	font-size:			12px;
+	line-height:		25px;
+	text-align:			right;
+	vertical-align: 	top;
+}
+
+.mark-item .content .main {
+	font-size:	 		1.5em;
+	line-height: 		1.25em;
+/*	text-align:  justify; */
+}
+
+.mark-item .content .main .quote {
+	background:  		#fffae1;
+	padding:     		8px;
+}
+
+.mark-item .content .main .quote .tick {
+	font-size: 			1.5em;
+}
+
+.mark-item .content .main .comment {
+	padding:     		5px;
+}

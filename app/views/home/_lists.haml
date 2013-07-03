@@ -1,0 +1,6 @@
+%div{ :class => 'item-table span-24 last' }
+  %div{ :class => 'lists span-20'}
+    = render :partial => 'home/lists_list'
+
+  %div{ :class => 'add-list span-4 last'}
+    = link_to '[ + ]', lists_path

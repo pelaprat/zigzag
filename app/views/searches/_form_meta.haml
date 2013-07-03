@@ -1,0 +1,31 @@
+-# BUILDING THE META
+.span-5{ :id => '#{type}s' }
+  .span-5{ :class => "meta-build"}
+  .span-5
+    .span-4{ :class => 'meta-header'}= "#{type.capitalize}s"
+    .span-1{ :class => 'meta-header right-column-tool last'}
+      - if user_meta.count > 0
+        %a{ :id => "add-search-#{@search.id}-#{type}" } [ + ]
+
+  %hr
+
+  %div{ :id => "search-#{@search.id}-#{type}-template" }
+    %div{ :id => "search-#{@search.id}-#{type}-item" }
+      %a{ :id => "delete-::FIELD1::" }
+        [ - ]
+      = select "#{type}", 'select-::FIELD1::', user_meta, { :prompt => '-'  }
+    = submit_tag 'Submit', { :class => 'hide-me', :id => 'submit-button' }
+
+  %div{ :id => "search-#{@search.id}-#{type}s", :class => 'meta-clickables span-5 list' }
+    - if type.eql? 'tag'
+      - if @search.search_tags.count > 0
+        - @search.search_tags.each do |search_tag|
+          .clickable-flag{ :id => "search_tag-".concat( search_tag.id.to_s ) }
+            = link_to '<div class="x">X</div> '.html_safe.concat( search_tag.tag.name.to_s ), |
+              search_tag_path( search_tag.id, :action => :destroy ),                          |
+              :method => :delete, :remote => true                                               |
+      - else
+        No tags!
+
+    :javascript
+      register_add_link( 'search-#{@search.id}-term', 'search-#{@search.id}-terms', 'true' );

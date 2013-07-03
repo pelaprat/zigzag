@@ -1,0 +1,60 @@
+.span-24{ :id => 'search-form', :class => 'append-bottom last'}
+  .span-6{ :id => 'info-box' }
+    Every search in ZigZag is a saved query. You can reuse and refine previous searches rather than begin new ones. Saved queries can be displayed on the front place and used in lieu of the default item listing.
+
+
+
+  -# Start the search form; keywords
+  = form_for @search do |s|
+    .span-7{ :id => 'query-box' }
+      = s.hidden_field    :user_id,     { :value => @current_user.id }
+      = s.hidden_field    :name,        { :value => @current_user.fullname }
+
+      %span{ :id => 'title' } Keywords:
+      = s.text_field :keywords
+
+      .label
+        .span-7
+          = s.check_box :f_quoted_text_only
+          Restrict to quoted text
+          - if @single_item_search
+            = check_box_tag :f_expand_search
+            Expand search beyond
+            = '"'.concat(@item.title).concat( '"' )
+
+        .span-8{ :class => 'last prepend-top' }
+          = s.submit 'Update Search'
+
+
+
+
+    -# BUILDING THE TAGS
+    .span-5{ :id => 'tags' }
+      .span-5{ :class => "meta-build"}
+      .span-5
+        .span-4{ :class => 'meta-header'} Tags
+        .span-1{ :class => 'meta-header right-column-tool last'}
+          - if @current_user.tags.count > 0
+            %a{ :id => "add-search-#{@search.id}-tag" } [ + ]
+
+      %hr
+
+      -# Generate the template
+      %div{ :id => "search-#{@search.id}-tag-template" }
+        %div{ :id => "search-#{@search.id}-tag-item" }
+          %a{ :id => "delete-::FIELD1::" } [ - ]
+          = select :tags, 'select-::FIELD1::', @current_user.tags.collect{ |t| [ t.name, t.id ] }, { :prompt => '-'  }
+        = submit_tag 'Submit', { :class => 'hide-me', :id => 'submit-button' }
+
+      -# Generate the container for the templated items
+      %div{ :id => "search-#{@search.id}-tags", :class => 'meta-clickables span-5 list' }
+
+      -# Populate the container with existing values
+      - if @search.tags.count > 0
+        - @search.tags.each do |search_tag|
+          :javascript
+            AddNewGeneric( "#{search_tag.id}", 'search-#{@search.id}-tag', 'search-#{@search.id}-tags' )
+
+      -# Register the hook to add new items to the container
+      :javascript
+        register_add_link( 'search-#{@search.id}-tag', 'search-#{@search.id}-tags', 'false' );
